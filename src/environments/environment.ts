@@ -4,5 +4,12 @@
 // The list of which env maps to which file can be found in `.angular-cli.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  rootUrl: 'http://localhost/RussellSnyderIO/',
+  pageIds: {
+    home: '493',
+    about: '496',
+    hear: '501',
+    see: '504',
+  }
 };

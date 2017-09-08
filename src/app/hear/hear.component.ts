@@ -1,0 +1,27 @@
+import {Component} from '@angular/core';
+import {WpService} from "../wp.service";
+import {environment} from "../../environments/environment";
+
+@Component({
+  selector: 'app-hear',
+  templateUrl: './hear.component.html',
+  styleUrls: ['./hear.component.css']
+})
+export class HearComponent implements Component {
+  page = 'hear';
+  pageData;
+  imageData = null;
+
+  constructor(private wpService: WpService) {}
+
+  ngOnInit() {
+    this.wpService.getWpPageData(environment.pageIds[this.page])
+        .subscribe(res => {
+          this.pageData = this.wpService.parsePageData(res.json());
+          this.wpService.getWpImageData(this.pageData.image)
+              .subscribe(res => {
+                this.imageData = this.wpService.parseImageData(res.json())
+              })
+        })
+  }
+}
