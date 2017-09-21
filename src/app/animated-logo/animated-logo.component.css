@@ -1,0 +1,24 @@
+.spliss-logo-animation#header-animation {
+  width: 200px;
+  height: 50px;
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+@media (max-width: 320px) {
+  .spliss-logo-animation#header-animation {
+    width: 100px;
+    height: 25px;
+  }
+}
+.spliss-logo-animation path {
+  stroke: #555;
+  fill: transparent;
+}
+.spliss-logo-animation#loading path {
+  stroke-width: 5px;
+  stroke: rgba(255, 192, 203, 0.9);
+}
+.spliss-logo-animation#header-animation.done path {
+  fill: rgba(255, 192, 203, 0.9);
+  transition: fill 0.75s;
+}

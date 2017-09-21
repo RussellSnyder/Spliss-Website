@@ -13,6 +13,7 @@ import { LoadingComponent } from './loading/loading.component';
 import { HearComponent } from './hear/hear.component';
 import { SeeComponent } from './see/see.component';
 import { AudioPlayerComponent } from './audio-player/audio-player.component';
+import { AnimatedLogoComponent } from './animated-logo/animated-logo.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { AudioPlayerComponent } from './audio-player/audio-player.component';
     HearComponent,
     SeeComponent,
     AudioPlayerComponent,
+    AnimatedLogoComponent,
   ],
   imports: [
     BrowserModule,

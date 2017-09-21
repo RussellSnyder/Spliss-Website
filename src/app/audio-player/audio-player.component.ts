@@ -9,25 +9,16 @@ import './soundcloudApi.js';
 })
 export class AudioPlayerComponent implements AfterViewInit {
     widget;
-    currentIndex = 0;
-    tracks = {
-        thisLittleFinger: 339816007,
-        beyondTheWall: 339816006
-    }
-    trackIds;
+    playlistLength = 16;
 
     constructor() {
-        this.trackIds = Object.keys(this.tracks).map((trackname) => this.tracks[trackname]);
     }
 
     ngAfterViewInit() {
         var iframeElement = document.querySelector('#app-audio-player');
         this.widget = SC.Widget(iframeElement);
         this.widget.bind(SC.Widget.Events.READY, () => {
-            this.loadTrack(0);
-        });
-        this.widget.bind(SC.Widget.Events.FINISH, () => {
-            this.onTrackFinished()
+            this.loadTrack(Math.floor(Math.random() * this.playlistLength));
         });
 
     }
@@ -46,43 +37,19 @@ export class AudioPlayerComponent implements AfterViewInit {
             this.widget.unbind(SC.Widget.Events.READY);
         });
     }
-    loadTrack(index = 0) {
+
+    loadTrack(index) {
         this.widget.load(
-            "https://api.soundcloud.com/tracks/" + this.trackIds[index],
+            "https://api.soundcloud.com/playlists/348524406",
             {
                 auto_play: false,
-                show_artwork: true,
+                show_artwork: false,
                 liking: false,
-                sharing: true
+                sharing: true,
+                show_playcount: true,
+                start_track: index
             }
         );
-        this.currentIndex = index;
-    }
-
-    playNext() {
-        var nextIndex = this.currentIndex + 1;
-        if (nextIndex >= this.trackIds.length) {
-            nextIndex = 0;
-        }
-        this.loadTrack(nextIndex);
-        this.playOnLoad()
-    }
-
-    playPrev() {
-        var nextIndex = this.currentIndex - 1;
-        if (nextIndex < 0) {
-            nextIndex = this.trackIds.length - 1;
-        }
-        this.loadTrack(nextIndex);
-        this.playOnLoad()
-    }
-
-    playToggle() {
-        this.widget.toggle();
-    }
-
-    onTrackFinished() {
-        this.playNext();
     }
 }
 

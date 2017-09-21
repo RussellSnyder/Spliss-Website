@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {WpService} from "../wp.service";
 import {environment} from "../../environments/environment";
 
@@ -8,21 +8,17 @@ import {environment} from "../../environments/environment";
     templateUrl: './home.component.html',
     styleUrls: ['./home.component.css']
 })
-export class HomeComponent implements Component {
+export class HomeComponent implements OnInit {
     page = 'home';
     pageData;
-    imageData = null;
+    imageData;
 
     constructor(private wpService: WpService) {}
 
     ngOnInit() {
-        this.wpService.getWpPageData(environment.pageIds[this.page])
-            .subscribe(res => {
-                this.pageData = this.wpService.parsePageData(res.json());
-                this.wpService.getWpImageData(this.pageData.image)
-                    .subscribe(res => {
-                        this.imageData = this.wpService.parseImageData(res.json())
-                    })
-            })
+        this.wpService.getWpBasicPageData(environment.pageIds[this.page]).then(data => {
+            this.pageData = data.pageData;
+            this.imageData = data.imageData;
+        })
     }
 }

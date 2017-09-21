@@ -1,10 +1,8 @@
-<iframe id="app-audio-player" width="100%"
-        src="https://w.soundcloud.com/player/?"
-        frameborder="no"
-></iframe>
-
-<br>
-
-<button id="play-toggle" (click)="playToggle()">Play / Pause</button>
-<button id="prev" (click)="playPrev()">Prev</button>
-<button id="next" (click)="playNext()">Next</button>
+<div class="audio-player">
+    <iframe id="app-audio-player" width="100%" height="450" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/348524406&amp;color=%238e8565&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false"></iframe>
+    <!--<div class="controls">-->
+        <!--&lt;!&ndash;<button id="play-toggle" (click)="playToggle()">Play / Pause</button>&ndash;&gt;-->
+        <!--<button class="btn btn-default col-xs-6" id="prev" (click)="playPrev()">Prev</button>-->
+        <!--<button class="btn btn-default col-xs-6" id="next" (click)="playNext()">Next</button>-->
+    <!--</div>-->
+</div>

@@ -33,4 +33,20 @@ export class WpService {
         };
     }
 
+    getWpBasicPageData(pageId) {
+        let pageData;
+        return this.getWpPageData(pageId)
+            .toPromise()
+            .then(data => {
+                pageData = data.json();
+                return pageData.featured_media;
+            })
+            .then(imageId => this.getWpImageData(imageId).toPromise())
+            .then(imageData => {
+                return {
+                    pageData: this.parsePageData(pageData),
+                    imageData: this.parseImageData(imageData.json())
+                }
+            })
+    }
 }

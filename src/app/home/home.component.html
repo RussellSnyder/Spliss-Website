@@ -1,7 +1,8 @@
 <app-loading *ngIf="!pageData"></app-loading>
 
-<div class="page-container {{page}}" *ngIf="pageData">
-    <h1 [innerHTML]="pageData.title"></h1>
+
+<div class="fluid-container page-container {{page}}" *ngIf="pageData">
     <img *ngIf="imageData" [src]="imageData.src" alt="" class="img-responsive" />
-    <div class="main" [innerHTML]="pageData.main"></div>
+    <h1 [innerHTML]="pageData.title"></h1>
+    <div class="main container" [innerHTML]="pageData.main"></div>
 </div>

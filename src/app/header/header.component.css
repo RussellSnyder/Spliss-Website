@@ -1,0 +1,9 @@
+.navbar-nav > li > a {
+  padding-top: 25px;
+  padding-bottom: 25px;
+}
+@media (min-width: 320px) {
+  .navbar-toggle {
+    margin-top: 17px;
+  }
+}

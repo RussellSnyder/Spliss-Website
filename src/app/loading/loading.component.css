@@ -1,7 +1,11 @@
-.contain {
+.loading-container {
     position: relative;
-    margin: 155px auto;
-    width: 200px;
+    background: #F8FF8F;
+    margin-top: -20px;
+    padding: 100px;
+    width: 100%;
+    min-height: 280px;
+    z-index: -2;
 }
 
 svg {
