@@ -15,8 +15,17 @@ export class HomeComponent implements OnInit {
     constructor(private wpService: WpService) {}
 
     ngOnInit() {
-        this.wpService.getSiteData().then(data => {
+        var data = this.wpService.getSiteData();
+        if (typeof data.then == 'function') {
+            this.wpService.getSiteData().then(data => {
+                this.data = data;
+            })
+        } else {
             this.data = data;
-        })
+        }
+        //
+        // this.wpService.getSiteData().then(data => {
+        //     this.data = data;
+        // })
     }
 }

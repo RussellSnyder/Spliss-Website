@@ -9,8 +9,11 @@ import 'rxjs/add/observable/forkJoin';
 @Injectable()
 export class WpService {
     siteData = null;
+    cacheKey = '';
 
     constructor(private http: Http) {
+        var d = new Date();
+        this.cacheKey = "spliss-site-" + d.getDay() + '-' + d.getHours()
     }
 
     getWpPageData(pageId) {
@@ -63,6 +66,8 @@ export class WpService {
             featuredMusic: featuredMusic
         }
 
+        localStorage.setItem(this.cacheKey, JSON.stringify(this.siteData));
+
         return this.siteData
     }
 
@@ -75,10 +80,6 @@ export class WpService {
     }
 
     getWpBasicPageData(pageId) {
-        // if (this.siteData) {
-        //     return this.siteData
-        // }
-
         let pageData;
         return this.getWpPageData(pageId)
             .toPromise()
@@ -101,6 +102,12 @@ export class WpService {
 
     getSiteData() {
         if (this.siteData) {
+            return this.siteData
+        }
+
+        var localSiteData = localStorage.getItem(this.cacheKey)
+        if (localSiteData) {
+            this.siteData = JSON.parse(localSiteData);
             return this.siteData
         }
 

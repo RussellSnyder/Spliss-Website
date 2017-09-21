@@ -1,9 +1,9 @@
 body {
   background: #E0EDE4;
-  min-height: 800px;
+  min-height: 400px;
 }
 .page-container {
-  min-height: 800px;
+  min-height: 400px;
 }
 .page-container h1 {
   padding: 10px;

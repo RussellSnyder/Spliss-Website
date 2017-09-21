@@ -1,9 +1,52 @@
 .navbar-nav > li > a {
     padding-top: 25px;
     padding-bottom: 25px;
+    background: transparent;
+    color: black;
+    font-size: 1.3em;
 }
 .navbar-toggle {
     @media (min-width: 320px) {
         margin-top: 17px;
+    }
+}
+
+li.active {
+    border-top: 5px solid black;
+    background: transparent;
+    a {
+        padding-top: 20px !important;
+    }
+}
+
+.main-logo {
+    color: #F880DF;
+    &:hover {
+        text-decoration: none;
+    }
+    h1 {
+        padding-left: 2%;
+    }
+    @media (min-width: 1000px) {
+        h1 {
+            margin-top: 65px;
+            padding-left: 100px;
+            font-size: 4.5em;
+        }
+    }
+}
+
+button.navbar-toggle {
+    background: #F880DF;
+    transition: background 0.5s;
+    .icon-bar {
+        background: black;
+        transition: background 0.5s;
+    }
+    &[aria-expanded=true] {
+        background: white;
+        .icon-bar {
+            background: #F880DF;
+        }
     }
 }

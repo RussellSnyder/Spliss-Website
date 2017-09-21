@@ -1,12 +1,14 @@
 .audio-player {
   position: relative;
-  width: 100%;
 }
-@media (min-width: 600px) {
-  .audio-player {
-    position: absolute;
-    right: 10%;
-    bottom: 0;
+.audio-player .inner-container {
+  width: 100%;
+  margin: 100px 0;
+}
+@media (min-width: 1000px) {
+  .audio-player .inner-container {
+    margin-left: auto;
+    margin-right: 5%;
     width: 400px;
   }
 }
