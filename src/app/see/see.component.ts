@@ -16,13 +16,13 @@ export class SeeComponent implements Component {
   constructor(private wpService: WpService) {}
 
   ngOnInit() {
-    this.wpService.getWpPageData(environment.pageIds[this.page])
-        .subscribe(res => {
-          this.pageData = this.wpService.parsePageData(res.json());
-          this.wpService.getWpImageData(this.pageData.image)
-              .subscribe(res => {
-                this.imageData = this.wpService.parseImageData(res.json())
-              })
-        })
+    // this.wpService.getWpPageData(environment.pageIds[this.page])
+    //     .subscribe(res => {
+    //       this.pageData = this.wpService.parseSiteData(res.json());
+    //       this.wpService.getWpImageData(this.pageData.image)
+    //           .subscribe(res => {
+    //             this.imageData = this.wpService.parseImageData(res.json())
+    //           })
+    //     })
   }
 }

@@ -1,0 +1,15 @@
+.audio-player {
+  position: relative;
+  width: 100%;
+}
+@media (min-width: 600px) {
+  .audio-player {
+    position: absolute;
+    right: 10%;
+    bottom: 0;
+    width: 400px;
+  }
+}
+.audio-player #widget {
+  background: transparent !important;
+}

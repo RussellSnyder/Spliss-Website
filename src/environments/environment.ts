@@ -5,7 +5,8 @@
 
 export const environment = {
   production: false,
-  rootUrl: 'http://localhost/RussellSnyderIO/',
+  rootUrl: 'http://www.russellsnyder.io/',
+  siteId: 641,
   pageIds: {
     home: '493',
     about: '496',

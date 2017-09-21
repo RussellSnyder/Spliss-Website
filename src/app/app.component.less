@@ -1,13 +1,27 @@
+@body-background: #E0EDE4;
+@logo-color: #FC3FF0;
+@min-page-height: 800px;
+
+body {
+    background: @body-background;
+    min-height: @min-page-height;
+}
+
 .page-container {
-  h1 {
-    text-align: center;
-    display: inline-block;
-    padding: 10px;
+    min-height: @min-page-height;
+    h1 {
+        padding: 10px;
+        width: 100%;
+        //margin-top: -40px;
+        color: @logo-color
+    }
+}
+
+.background-image {
+    position: absolute;
+    background-repeat: no-repeat;
+    background-position: center;
     width: 100%;
-    //margin-top: -40px;
-    margin-left: auto;
-    margin-right: auto;
-    background: rgba(248, 255, 143, 1);
-    color: rgba(255, 192, 203, 1);
-  }
+    background-size: 100%;
+    z-index: -1;
 }

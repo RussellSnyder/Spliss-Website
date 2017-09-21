@@ -1,6 +1,7 @@
 import {Component, OnInit, AfterViewInit} from '@angular/core';
 declare var SC: any;
 import './soundcloudApi.js';
+import {WpService} from "../wp.service";
 
 @Component({
     selector: 'app-audio-player',
@@ -10,21 +11,23 @@ import './soundcloudApi.js';
 export class AudioPlayerComponent implements AfterViewInit {
     widget;
     playlistLength = 16;
+    data;
 
-    constructor() {
-    }
+    constructor(private wpService: WpService) {}
 
     ngAfterViewInit() {
-        var iframeElement = document.querySelector('#app-audio-player');
-        this.widget = SC.Widget(iframeElement);
-        this.widget.bind(SC.Widget.Events.READY, () => {
-            this.loadTrack(Math.floor(Math.random() * this.playlistLength));
-        });
-
+        this.wpService.getSiteData().then(data => {
+            console.log(data)
+            this.data = data;
+        })
+            // var iframeElement = document.querySelector('#app-audio-player');
+            // this.widget = SC.Widget(iframeElement);
+            // this.widget.bind(SC.Widget.Events.READY, () => {
+            //     this.loadTrack(Math.floor(Math.random() * this.playlistLength));
+            // });
     }
 
     ngOnInit() {
-
     }
 
     play() {
@@ -40,7 +43,7 @@ export class AudioPlayerComponent implements AfterViewInit {
 
     loadTrack(index) {
         this.widget.load(
-            "https://api.soundcloud.com/playlists/348524406",
+            "https://api.soundcloud.com/playlists/" + this.data.featuredMusic.playlist,
             {
                 auto_play: false,
                 show_artwork: false,
