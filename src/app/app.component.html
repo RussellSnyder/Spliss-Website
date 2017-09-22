@@ -1,7 +1,18 @@
+<app-announcement></app-announcement>
 <app-header></app-header>
 
 <div class="app-container content">
     <router-outlet></router-outlet>
-    <app-audio-player></app-audio-player>
+    <div class="container">
+        <div class="row features">
+            <div class="col-md-6">
+                <app-facebook tab="timeline"></app-facebook>
+            </div>
+            <div class="col-md-6">
+                <app-audio-player></app-audio-player>
+            </div>
+        </div>
+    </div>
+    <app-footer></app-footer>
 </div>
 

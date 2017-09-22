@@ -5,7 +5,6 @@ import 'rxjs/add/operator/toPromise';
 import 'rxjs/add/operator/mergeMap';
 import 'rxjs/add/observable/forkJoin';
 
-
 @Injectable()
 export class WpService {
     siteData = null;
@@ -61,6 +60,16 @@ export class WpService {
             playlist: acf.featured_music_playlist
         }
 
+        var footer = {
+            body: acf.footer
+        }
+
+        var announcement = {
+            body: acf.announcement,
+            startTime: acf.announcement_start_time,
+            endTime: acf.announcement_end_time,
+        }
+
         var mainImage = imageData ? this.parseImageData(imageData.json()) : '';
 
         this.siteData = {
@@ -70,7 +79,9 @@ export class WpService {
             events: events,
             music: music,
             contact: contact,
-            featuredMusic: featuredMusic
+            featuredMusic: featuredMusic,
+            footer: footer,
+            announcement: announcement
         }
 
         localStorage.setItem(this.cacheKey, JSON.stringify(this.siteData));

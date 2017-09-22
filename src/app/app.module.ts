@@ -1,6 +1,6 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
-
+import { EscapeHtmlPipe } from './pipes/keep-html.pipe';
 import {AppComponent} from './app.component';
 import {WpService} from "./wp.service";
 import {HttpModule} from "@angular/http";
@@ -18,6 +18,8 @@ import {ContactComponent} from './contact/contact.component';
 import {MusicComponent} from './music/music.component';
 import {FacebookComponent} from './facebook/facebook.component';
 import {FacebookModule} from "ngx-facebook";
+import { FooterComponent } from './footer/footer.component';
+import { AnnouncementComponent } from './announcement/announcement.component';
 
 @NgModule({
     declarations: [
@@ -34,6 +36,9 @@ import {FacebookModule} from "ngx-facebook";
         ContactComponent,
         MusicComponent,
         FacebookComponent,
+        FooterComponent,
+        AnnouncementComponent,
+        EscapeHtmlPipe
     ],
     imports: [
         BrowserModule,
