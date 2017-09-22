@@ -8,16 +8,18 @@ import {environment} from "../../environments/environment";
     styleUrls: ['./about.component.css']
 })
 export class AboutComponent implements OnInit {
-    page = 'about';
-    pageData;
-    imageData;
+    data;
 
     constructor(private wpService: WpService) {}
 
     ngOnInit() {
-        this.wpService.getWpBasicPageData(environment.pageIds[this.page]).then(data => {
-            this.pageData = data.pageData;
-            this.imageData = data.imageData;
-        })
+        let data = this.wpService.getSiteData();
+        if (typeof data.then == 'function') {
+            this.wpService.getSiteData().then(data => {
+                this.data = data;
+            })
+        } else {
+            this.data = data;
+        }
     }
 }

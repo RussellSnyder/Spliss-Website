@@ -6,9 +6,15 @@
         'background-size': data.mainImage.width + 'px ' + data.mainImage.height + 'px',
         'height': data.mainImage.height + 'px'
      }">
- </div>
-
-<div class="container page-container home" *ngIf="data">
-    <h2 [innerHTML]="data.home.title"></h2>
-    <div class="main container" [innerHTML]="data.home.body"></div>
 </div>
+
+<div class="container page-container events" *ngIf="data">
+  <h2 [innerHTML]="data.contact.title"></h2>
+  <div class="row info">
+    <div class="col-md-6" [innerHTML]="data.contact.body"></div>
+    <div class="col-md-6">
+      <app-facebook tab="messages"></app-facebook>
+    </div>
+  </div>
+</div>
+

@@ -20,16 +20,16 @@ li.active a {
 .main-logo {
   color: #F880DF;
 }
-.main-logo:hover {
+.main-logo:hover,
+.main-logo:focus {
   text-decoration: none;
 }
 .main-logo h1 {
-  padding-left: 2%;
+  padding-top: 0;
+  margin-top: 0;
 }
 @media (min-width: 1000px) {
   .main-logo h1 {
-    margin-top: 65px;
-    padding-left: 100px;
     font-size: 4.5em;
   }
 }

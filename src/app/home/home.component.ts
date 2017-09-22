@@ -15,7 +15,7 @@ export class HomeComponent implements OnInit {
     constructor(private wpService: WpService) {}
 
     ngOnInit() {
-        var data = this.wpService.getSiteData();
+        let data = this.wpService.getSiteData();
         if (typeof data.then == 'function') {
             this.wpService.getSiteData().then(data => {
                 this.data = data;
@@ -23,9 +23,5 @@ export class HomeComponent implements OnInit {
         } else {
             this.data = data;
         }
-        //
-        // this.wpService.getSiteData().then(data => {
-        //     this.data = data;
-        // })
     }
 }

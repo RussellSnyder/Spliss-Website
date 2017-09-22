@@ -1,7 +1,0 @@
-<app-loading *ngIf="!pageData"></app-loading>
-
-<div class="page-container {{page}}" *ngIf="pageData">
-  <h1 [innerHTML]="pageData.title"></h1>
-  <img *ngIf="imageData" [src]="imageData.src" alt="" class="img-responsive" />
-  <div class="main" [innerHTML]="pageData.main"></div>
-</div>

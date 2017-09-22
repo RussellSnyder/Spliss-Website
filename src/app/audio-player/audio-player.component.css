@@ -1,17 +1,6 @@
 .audio-player {
   position: relative;
 }
-.audio-player .inner-container {
-  width: 100%;
-  margin: 100px 0;
-}
-@media (min-width: 1000px) {
-  .audio-player .inner-container {
-    margin-left: auto;
-    margin-right: 5%;
-    width: 400px;
-  }
-}
 .audio-player #widget {
   background: transparent !important;
 }

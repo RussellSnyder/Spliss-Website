@@ -1,0 +1,28 @@
+<app-loading *ngIf="!data"></app-loading>
+
+<div *ngIf="data" class="background-image"
+     [ngStyle]="{
+        'background-image': 'url(' + data.mainImage.src +')',
+        'background-size': data.mainImage.width + 'px ' + data.mainImage.height + 'px',
+        'height': data.mainImage.height + 'px'
+     }">
+</div>
+
+<div class="container page-container events" *ngIf="data">
+    <h2 [innerHTML]="data.events.title"></h2>
+    <div class="row info">
+        <div class="col-md-6" [innerHTML]="data.events.body"></div>
+        <div class="col-md-6">
+            <app-facebook tab="events"></app-facebook>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3 text-center contact">
+            <h3>{{data.events.contact}}</h3>
+            <a routerLink="/contact">
+                <h2>Contact Us</h2>
+            </a>
+        </div>
+    </div>
+</div>
+

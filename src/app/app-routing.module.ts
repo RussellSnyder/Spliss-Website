@@ -3,15 +3,17 @@ import {Routes, RouterModule} from '@angular/router';
 import {AboutComponent} from "./about/about.component";
 import {HomeComponent} from "./home/home.component";
 import {SorryComponent} from "./sorry/sorry.component";
-import {HearComponent} from "./hear/hear.component";
-import {SeeComponent} from "./see/see.component";
+import {MusicComponent} from "./music/music.component";
+import {EventsComponent} from "./events/events.component";
+import {ContactComponent} from "./contact/contact.component";
 
 const appRoutes: Routes = [
     {path: '', redirectTo: 'home', pathMatch: 'full'},
     {path: 'about', component: AboutComponent},
     {path: 'home', component: HomeComponent},
-    {path: 'hear', component: HearComponent},
-    {path: 'see', component: SeeComponent},
+    {path: 'music', component: MusicComponent},
+    {path: 'events', component: EventsComponent},
+    {path: 'contact', component: ContactComponent},
     {path: 'sorry', component: SorryComponent}
 ];
 

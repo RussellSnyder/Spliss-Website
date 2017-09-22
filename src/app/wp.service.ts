@@ -38,6 +38,12 @@ export class WpService {
             body: acf.about_body,
         }
 
+        var events = {
+            title: acf.events_title,
+            body: acf.events_body,
+            contact: acf.events_contact_text,
+        }
+
         var music = {
             title: acf.music_title,
             body: acf.music_body,
@@ -61,6 +67,7 @@ export class WpService {
             mainImage: mainImage,
             home: home,
             about: about,
+            events: events,
             music: music,
             contact: contact,
             featuredMusic: featuredMusic
@@ -108,6 +115,7 @@ export class WpService {
         var localSiteData = localStorage.getItem(this.cacheKey)
         if (localSiteData) {
             this.siteData = JSON.parse(localSiteData);
+            this.clearOlderVersions();
             return this.siteData
         }
 
@@ -129,6 +137,17 @@ export class WpService {
             .then(imageData => {
                 return this.parseSiteData(pageData, imageData)
             })
+    }
+
+    clearOlderVersions() {
+        var arr = []; // Array to hold the keys
+        // Iterate over localStorage and insert the keys that meet the condition into arr
+        for (var i = 0; i < localStorage.length; i++){
+            if (localStorage.key(i).substring(0,12) == 'spliss-site-' && localStorage.key(i) !== this.cacheKey) {
+                arr.push(localStorage.key(i));
+            }
+        }
+        arr.forEach(item => localStorage.removeItem(item))
     }
 
 }

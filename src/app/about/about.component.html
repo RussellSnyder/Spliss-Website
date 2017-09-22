@@ -1,7 +1,15 @@
-<app-loading *ngIf="!pageData"></app-loading>
+<app-loading *ngIf="!data"></app-loading>
 
-<div class="page-container {{page}}" *ngIf="pageData">
-    <h1 [innerHTML]="pageData.title"></h1>
-    <img *ngIf="imageData" [src]="imageData.src" alt="" class="img-responsive"/>
-    <div class="main" [innerHTML]="pageData.main"></div>
+<div *ngIf="data" class="background-image"
+     [ngStyle]="{
+        'background-image': 'url(' + data.mainImage.src +')',
+        'background-size': data.mainImage.width + 'px ' + data.mainImage.height + 'px',
+        'height': data.mainImage.height + 'px'
+     }">
+</div>
+
+<div class="container page-container about" *ngIf="data">
+    <h2 [innerHTML]="data.about.title"></h2>
+    <h3 [innerHTML]="data.about.subtitle"></h3>
+    <div class="main" [innerHTML]="data.about.body"></div>
 </div>
