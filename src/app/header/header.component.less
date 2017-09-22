@@ -1,3 +1,5 @@
+@import (reference) "../_variables";
+
 .navbar-nav > li > a {
     padding-top: 25px;
     padding-bottom: 25px;
@@ -12,15 +14,19 @@
 }
 
 li.active {
-    border-top: 5px solid black;
     background: transparent;
+    border-left: 5px solid black;
     a {
         padding-top: 20px !important;
+    }
+    @media (min-width: 767px) {
+        border-left: 0;
+        border-top: 5px solid black;
     }
 }
 
 .main-logo {
-    color: #F880DF;
+    color: @brandColor;
     &:hover, &:focus {
         text-decoration: none;
     }
@@ -37,7 +43,7 @@ li.active {
 }
 
 button.navbar-toggle {
-    background: #F880DF;
+    background: @brandColor;
     transition: background 0.5s;
     .icon-bar {
         background: black;
@@ -46,7 +52,7 @@ button.navbar-toggle {
     &[aria-expanded=true] {
         background: white;
         .icon-bar {
-            background: #F880DF;
+            background: @brandColor;
         }
     }
 }

@@ -1,8 +1,5 @@
 .announcement {
   margin-top: 20px;
-  height: 0;
   overflow: hidden;
-}
-.announcement.show {
   height: auto;
 }

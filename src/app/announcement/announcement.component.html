@@ -1,4 +1,4 @@
-<div class="container announcement {{extraClass}}">
+<div class="container announcement" [@visibilityState]="visibility" *ngIf="data">
   <div class="close text-right" (click)="hideAnnouncement()">
     <i class="fa fa-times fa-2x"></i>
   </div>

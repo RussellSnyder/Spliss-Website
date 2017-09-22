@@ -1,3 +1,14 @@
-<p>
-  music works!
-</p>
+<app-loading *ngIf="!data"></app-loading>
+
+<div *ngIf="data" class="background-image"
+     [ngStyle]="{
+        'background-image': 'url(' + data.mainImage.src +')',
+        'background-size': data.mainImage.width + 'px ' + data.mainImage.height + 'px',
+        'height': data.mainImage.height + 'px'
+     }">
+</div>
+
+<div class="container page-container home" *ngIf="data">
+  <h2 [innerHTML]="data.music.title"></h2>
+  <div class="main container" [innerHTML]="data.music.body  | keepHtml"></div>
+</div>

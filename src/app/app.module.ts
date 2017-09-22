@@ -20,6 +20,7 @@ import {FacebookComponent} from './facebook/facebook.component';
 import {FacebookModule} from "ngx-facebook";
 import { FooterComponent } from './footer/footer.component';
 import { AnnouncementComponent } from './announcement/announcement.component';
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 @NgModule({
     declarations: [
@@ -42,6 +43,7 @@ import { AnnouncementComponent } from './announcement/announcement.component';
     ],
     imports: [
         BrowserModule,
+        BrowserAnimationsModule,
         HttpModule,
         AppRoutingModule,
         FacebookModule.forRoot()
