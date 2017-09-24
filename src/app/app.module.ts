@@ -21,6 +21,7 @@ import {FacebookModule} from "ngx-facebook";
 import { FooterComponent } from './footer/footer.component';
 import { AnnouncementComponent } from './announcement/announcement.component';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {SiteDataModel} from "./models/SiteDataModel";
 
 @NgModule({
     declarations: [
@@ -48,7 +49,7 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
         AppRoutingModule,
         FacebookModule.forRoot()
     ],
-    providers: [WpService],
+    providers: [WpService, SiteDataModel],
     bootstrap: [AppComponent]
 })
 export class AppModule {
