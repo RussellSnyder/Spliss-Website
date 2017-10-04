@@ -4,7 +4,6 @@ import { EscapeHtmlPipe } from './pipes/keep-html.pipe';
 import {AppComponent} from './app.component';
 import {WpService} from "./wp.service";
 import {HttpModule} from "@angular/http";
-import {AboutComponent} from './about/about.component';
 import {HeaderComponent} from './header/header.component';
 import {AppRoutingModule} from "./app-routing.module";
 import {HomeComponent} from './home/home.component';
@@ -26,7 +25,6 @@ import {SiteDataModel} from "./models/SiteDataModel";
 @NgModule({
     declarations: [
         AppComponent,
-        AboutComponent,
         HeaderComponent,
         HomeComponent,
         SorryComponent,
