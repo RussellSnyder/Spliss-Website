@@ -8,7 +8,28 @@
      }">
 </div>
 
-<div class="container page-container home" *ngIf="data">
+<div class="container page-container music" *ngIf="data">
   <h2 [innerHTML]="data.music.title"></h2>
   <div class="main container" [innerHTML]="data.music.body  | keepHtml"></div>
+
+  <div *ngIf="data.albums.length > 0">
+    <h2>Albums</h2>
+    <div class="album" *ngFor="let album of data.albums">
+      <h3 class="text-center">
+        {{ album.title }}
+      </h3>
+      <img class="img-responsive album-artwork" src="{{ album.artwork.src }}" alt="{{ album.title }} artwork">
+      <div class="description" [innerHTML]="album.body | keepHtml"></div>
+      <div class="tracks">
+        <div class="track col-md-4 col-sm-6" *ngFor="let track of album.tracks; let i = index">
+          {{ track.title }}
+          <div class="description" [innerHTML]="track.body | keepHtml"></div>
+          {{ track.link }}
+          <img src="{{ track.artwork.src }}" alt="">
+          <div class="extra" *ngIf="track.extra" [innerHTML]="track.extra | keepHtml">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

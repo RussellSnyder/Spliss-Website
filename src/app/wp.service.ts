@@ -25,6 +25,9 @@ export class WpService {
     };
 
     parseSiteData(pageData, imageData) {
+        if (this.siteData) {
+            return this.siteData
+        }
         this.siteData = this.siteDataModel.parseSiteData(pageData, imageData);
         localStorage.setItem(this.cacheKey, JSON.stringify(this.siteData));
 

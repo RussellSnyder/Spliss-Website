@@ -1,52 +1,74 @@
 export class SiteDataModel {
     parseSiteData(pageData, imageData) {
-        var acf = pageData.acf;
+        const acf = pageData.acf;
 
-        var home = {
+        console.log(acf)
+
+
+        const home = {
             title: pageData.title.pageData,
             body: pageData.content.rendered,
         }
 
-        var about = {
+        const about = {
             title: acf.about_title,
             subtitle: acf.about_subtitle,
             body: acf.about_body,
         }
 
-        var events = {
+        const events = {
             title: acf.events_title,
             body: acf.events_body,
             contact: acf.events_contact_text,
         }
 
-        var music = {
+        const music = {
             title: acf.music_title,
             body: acf.music_body,
         }
 
-        var contact = {
+        const albums = acf.albums.map(album => {
+            return {
+                title: album.album_title,
+                artwork: album.album_artwork ? this.parseAcfImageData(album.album_artwork) : '',
+                body: album.album_description,
+                download: album.album_download,
+                tracks: album.tracks.map(track => {
+                    return {
+                        title: track.track_title,
+                        body: track.track_description,
+                        stream: track.dropbox_stream,
+                        download: track.dropbox_download,
+                        artwork: track.main_artwork ? this.parseAcfImageData(track.main_artwork) : '',
+                        extra: track.extra_description
+                    }
+                })
+            }
+        })
+
+        const contact = {
             title: acf.contact_title,
             body: acf.contact_information,
         }
 
-        var featuredMusic = {
+        const featuredMusic = {
             title: acf.featured_music_title,
             subtitle: acf.featured_music_subtitle,
             type: acf.featured_music_type,
             playlist: acf.featured_music_playlist
         }
 
-        var footer = {
+        const footer = {
             body: acf.footer
         }
 
-        var announcement = {
+        const announcement = {
             body: acf.announcement,
             startTime: acf.announcement_start_time,
             endTime: acf.announcement_end_time,
         }
 
-        var mainImage = imageData ? this.parseImageData(imageData.json()) : '';
+        const mainImage = imageData ? this.parseImageData(imageData.json()) : '';
 
         return {
             mainImage: mainImage,
@@ -54,6 +76,7 @@ export class SiteDataModel {
             about: about,
             events: events,
             music: music,
+            albums: albums,
             contact: contact,
             featuredMusic: featuredMusic,
             footer: footer,
@@ -66,6 +89,14 @@ export class SiteDataModel {
             src: data.source_url,
             height: data.media_details.height,
             width: data.media_details.width,
+        };
+    }
+
+    parseAcfImageData(data) {
+        return {
+            src: data.url,
+            height: data.height,
+            width: data.width,
         };
     }
 
