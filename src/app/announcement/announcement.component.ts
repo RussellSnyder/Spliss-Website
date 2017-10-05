@@ -44,12 +44,22 @@ export class AnnouncementComponent implements OnInit {
 
     toggleAnnouncement(announcementData) {
         let {endTime, startTime} = announcementData;
-        if (startTime < endTime) {
+        let DateObject = new Date();
+        let now = this.getToday(DateObject) + ' ' + this.getTimeNow(DateObject);
+        if (startTime < endTime && endTime > now) {
             setTimeout(() => this.visibility = 'visible', 2000)
         }
     }
 
     hideAnnouncement() {
         this.visibility = 'hidden';
+    }
+
+    getToday(DateObject) {
+        return `${DateObject.getFullYear()}-${(DateObject.getMonth() + 1) < 10 ? "0" : ""}${DateObject.getMonth() + 1}-${(DateObject.getDay() + 1) < 10 ? "0" : ""}${DateObject.getDay()+1}`
+    }
+
+    getTimeNow(DateObject) {
+        return ((DateObject.getHours() < 10) ? "0" : "") + DateObject.getHours() + ":" + ((DateObject.getMinutes() < 10) ? "0" : "") + DateObject.getMinutes() + ":" + ((DateObject.getSeconds() < 10) ? "0" : "") + DateObject.getSeconds();
     }
 }
