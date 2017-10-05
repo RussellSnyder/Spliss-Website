@@ -1,0 +1,3 @@
+.page-container.track .track > *:not(img) {
+  margin-bottom: 20px;
+}

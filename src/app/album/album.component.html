@@ -1,0 +1,59 @@
+<app-loading *ngIf="!data"></app-loading>
+
+<div class="container page-container album" *ngIf="data">
+    <h2 [innerHTML]="data.title"></h2>
+
+    <img class="img-responsive album-artwork" src="{{ data.artwork.src }}" alt="{{ data.title }} artwork">
+    <div class="main container" [innerHTML]="data.body  | keepHtml"></div>
+    <div class="row">
+        <button type="button" class="btn btn-success col-sm-8 col-sm-offset-2 col-xs-12 btn-lg" data-toggle="modal"
+                data-target="#download-album">
+            <h4>Download <i class="fa fa-download"></i></h4>
+        </button>
+    </div>
+
+    <div *ngIf="data.tracks.length > 0" class="tracks">
+        <h3>Tracks</h3>
+        <div class="row">
+            <div class="track col-md-4 col-sm-6" *ngFor="let track of data.tracks; let i = index">
+                <h4 class="text-center">{{ track.title }}</h4>
+                <img *ngIf="track.artwork" src="{{ track.artwork.src }}" alt="" class="img-responsive">
+                <audio controls id="{{track.title}}">
+                    <source src="{{ track.stream }}&raw=1&t=.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+                <div class="description" [innerHTML]="track.body | keepHtml"></div>
+            </div>
+        </div>
+    </div>
+    <div id="download-album" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Download {{ data.title }}</h4>
+                </div>
+                <div class="modal-body" *ngIf="!successMessage">
+                    <p>Please enter your download code:</p>
+                    <form>
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="downloadCode" #downloadCode
+                                   required>
+                            <div class="error" [innerHTML]="errorMessage"></div>
+                        </div>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="button" (click)="checkDownloadCode()" class="pull-right col-xs-3 btn btn-primary">
+                            Submit
+                        </button>
+                    </form>
+                </div>
+                <div class="modal-body text-center" *ngIf="successMessage">
+                    <i class="fa fa-thumbs-o-up fa-3x"></i>
+                    <h4>{{successMessage}}</h4>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>

@@ -1,6 +1,14 @@
+@import (reference) "../_variables";
+
 .page-container.music {
     .album {
         margin-bottom: 20px;
+        h3 {
+            &:hover {
+                cursor: pointer;
+                color: @link-color-hover;
+            }
+        }
     }
     .album-artwork {
         margin: 0 auto 20px;
@@ -17,27 +25,33 @@
             margin-bottom: 10px;
             font-weight: bold;
         }
-        .description {
-            margin-bottom: 20px;
-        }
 
         img {
             margin: auto;
         }
-        audio {
-            width: 100%;
-            &::-internal-media-controls-download-button {
-                display:none;
-            }
+    }
 
-            &::-webkit-media-controls-enclosure {
-                overflow:hidden;
+    .album, .track {
+        .description {
+            margin-bottom: 20px;
+            max-height: 150px;
+            min-height: 60px;
+            position: relative;
+            overflow: hidden;
+            &:after {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                height: 40px;
+                /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+0,fd9452+47,fd9452+100&0+0,0.3+46,0.65+100 */
+                background: -moz-linear-gradient(top, rgba(0,0,0,0) 0%,  @mainBackgroundColor 100%); /* FF3.6-15 */
+                background: -webkit-linear-gradient(top, rgba(0,0,0,0) 0%, @mainBackgroundColor 100%); /* Chrome10-25,Safari5.1-6 */
+                background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, @mainBackgroundColor 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+                filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#a6fd9452',GradientType=0 ); /* IE6-9 */
+                //background: fade(@mainBackgroundColor, 50%);
             }
-
-            &::-webkit-media-controls-panel {
-                width: ~"calc(100% + 30px);" /* Adjust as needed */
-            }
-
         }
     }
 }

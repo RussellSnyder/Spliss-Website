@@ -1,5 +1,11 @@
 .announcement {
-  margin-top: 20px;
   overflow: hidden;
   height: auto;
+  border-left: 5px solid #6544AD;
+}
+.announcement > div {
+  margin-top: 20px;
+}
+.announcement > div i {
+  color: #6544AD;
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewChildren} from '@angular/core';
 import {WpService} from "../wp.service";
 
 
@@ -8,6 +8,7 @@ import {WpService} from "../wp.service";
   styleUrls: ['./music.component.css']
 })
 export class MusicComponent implements OnInit {
+  @ViewChildren('trackDescription') trackDescriptions;
   data;
   readmoreLength = 100;
   constructor(private wpService: WpService) {}
@@ -22,5 +23,4 @@ export class MusicComponent implements OnInit {
       this.data = data;
     }
   }
-
 }

@@ -15,25 +15,28 @@
   <div *ngIf="data.albums.length > 0" class="album">
     <h2>Albums</h2>
     <div class="album" *ngFor="let album of data.albums">
-      <h3 class="text-center">
-        {{ album.title }}
-      </h3>
+      <h3 class="text-center">{{ album.title }}</h3>
       <div class="row">
-        <img class="img-responsive album-artwork" src="{{ album.artwork.src }}" alt="{{ album.title }} artwork">
+        <img routerLink="../album/{{album.title|slugify}}" class="img-responsive album-artwork" src="{{ album.artwork.src }}" alt="{{ album.title }} artwork">
         <div class="col-md-8 col-md-offset-2 description" [innerHTML]="album.body | keepHtml"></div>
+        <a routerLink="../album/{{album.title|slugify}}" class="btn btn-primary col-xs-12">
+          <h4>{{album.title}} &nbsp;<i class="fa fa-external-link"></i></h4>
+        </a>
+
       </div>
       <div class="tracks row">
-        <h3 class="text-center">Tracks from {{ album.title }}</h3>
-        <div class="track col-md-4 col-sm-6" *ngFor="let track of album.tracks; let i = index">
+        <h3>Tracks from {{ album.title }}</h3>
+        <div class="track col-md-4 col-sm-6" *ngFor="let track of album.tracks">
           <h4 class="text-center">{{ track.title }}</h4>
           <img *ngIf="track.artwork" src="{{ track.artwork.src }}" alt="" class="img-responsive">
           <audio controls id="{{track.title}}">
             <source src="{{ track.stream }}&raw=1&t=.mp3" type="audio/mpeg">
             Your browser does not support the audio element.
           </audio>
-          <div class="description" [innerHTML]="track.body | keepHtml"></div>
-          <!--{{ track.download }}-->
-          <!--<div class="extra" *ngIf="track.extra" [innerHTML]="track.extra | keepHtml"></div>-->
+          <div class="description" [innerHTML]="track.body | keepHtml" #trackDescription></div>
+          <a routerLink="../track/{{track.title|slugify}}" class="btn btn-primary col-xs-12">
+            <h4>{{track.title}} &nbsp;<i class="fa fa-external-link"></i></h4>
+          </a>
         </div>
       </div>
     </div>

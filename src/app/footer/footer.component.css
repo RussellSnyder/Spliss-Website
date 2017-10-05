@@ -1,4 +1,8 @@
 .footer {
   padding: 30px;
-  background: #F880DF;
+  margin-top: 30px;
+  border-top: 2px solid #35A38A;
+}
+.footer .main-logo {
+  color: #6544AD;
 }

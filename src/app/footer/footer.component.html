@@ -1,5 +1,9 @@
 <footer class="footer" *ngIf="data">
-  <div class="container">
-    <div class="text-center" [innerHTML]="data.footer.body"></div>
+  <div class="container text-center">
+    <div [innerHTML]="data.footer.body"></div>
+    <app-social-sharing></app-social-sharing>
+    <a routerLink="/home" class="main-logo">
+      <h1>SPLíSS</h1>
+    </a>
   </div>
 </footer>

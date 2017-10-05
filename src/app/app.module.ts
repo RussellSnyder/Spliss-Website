@@ -1,6 +1,7 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import { EscapeHtmlPipe } from './pipes/keep-html.pipe';
+import { Slugify } from './pipes/slugify.pipe';
 import {AppComponent} from './app.component';
 import {WpService} from "./wp.service";
 import {HttpModule} from "@angular/http";
@@ -21,6 +22,9 @@ import { FooterComponent } from './footer/footer.component';
 import { AnnouncementComponent } from './announcement/announcement.component';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {SiteDataModel} from "./models/SiteDataModel";
+import { TrackComponent } from './track/track.component';
+import { AlbumComponent } from './album/album.component';
+import {ReviewsComponent} from "./reviews/reviews.component";
 
 @NgModule({
     declarations: [
@@ -38,7 +42,11 @@ import {SiteDataModel} from "./models/SiteDataModel";
         FacebookComponent,
         FooterComponent,
         AnnouncementComponent,
-        EscapeHtmlPipe
+        EscapeHtmlPipe,
+        Slugify,
+        TrackComponent,
+        AlbumComponent,
+        ReviewsComponent
     ],
     imports: [
         BrowserModule,
@@ -47,7 +55,7 @@ import {SiteDataModel} from "./models/SiteDataModel";
         AppRoutingModule,
         FacebookModule.forRoot()
     ],
-    providers: [WpService, SiteDataModel],
+    providers: [WpService, SiteDataModel, Slugify],
     bootstrap: [AppComponent]
 })
 export class AppModule {

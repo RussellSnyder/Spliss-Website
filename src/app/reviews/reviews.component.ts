@@ -3,11 +3,11 @@ import {WpService} from "../wp.service";
 import {environment} from "../../environments/environment";
 
 @Component({
-    selector: 'app-about',
-    templateUrl: './about.component.html',
-    styleUrls: ['./about.component.css']
+    selector: 'app-reviews',
+    templateUrl: './reviews.component.html',
+    styleUrls: ['./reviews.component.css']
 })
-export class AboutComponent implements OnInit {
+export class ReviewsComponent implements OnInit {
     data;
 
     constructor(private wpService: WpService) {}

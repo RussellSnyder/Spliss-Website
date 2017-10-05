@@ -1,5 +1,5 @@
 body {
-  background: #E0EDE4;
+  background: #fda46b;
   min-height: 400px;
 }
 .page-container {
@@ -25,4 +25,65 @@ body {
 .app-container .features .fb-page > span {
   display: block;
   margin: auto;
+}
+h1,
+h2,
+h3 {
+  font-family: 'Trirong', serif;
+}
+a {
+  color: #35A38A;
+}
+a:hover {
+  color: #FDE552;
+  text-decoration: none;
+}
+html,
+body {
+  font-size: 16px;
+  font-family: 'Proza Libre', sans-serif;
+}
+@media screen and (min-width: 320px) {
+  html,
+  body {
+    font-size: 15px;
+  }
+}
+@media screen and (min-width: 1000px) {
+  html,
+  body {
+    font-size: 22px;
+  }
+}
+audio {
+  width: 100%;
+}
+audio::-internal-media-controls-download-button {
+  display: none;
+}
+audio::-webkit-media-controls-enclosure {
+  overflow: hidden;
+}
+audio::-webkit-media-controls-panel {
+  width: calc(100% + 30px); /* Adjust as needed */;
+}
+.btn.btn-primary {
+  background-color: #FD9452;
+  border-color: #feb384;
+}
+.btn.btn-primary:hover {
+  background-color: #fd914d;
+  border-color: #fec39e;
+  color: #FDE552;
+}
+.btn.btn-secondary {
+  background-color: #FD9452;
+}
+.btn.btn-success {
+  background-color: #6544AD;
+  border-color: #8063c1;
+}
+.btn.btn-success:hover {
+  background-color: #6343a9;
+  border-color: #8f75c9;
 }

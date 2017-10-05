@@ -5,13 +5,14 @@ import 'rxjs/add/operator/toPromise';
 import 'rxjs/add/operator/mergeMap';
 import 'rxjs/add/observable/forkJoin';
 import {SiteDataModel} from "./models/SiteDataModel";
+import {Slugify} from "./pipes/slugify.pipe";
 
 @Injectable()
 export class WpService {
     siteData = null;
     cacheKey = '';
 
-    constructor(private http: Http, private siteDataModel: SiteDataModel) {
+    constructor(private http: Http, private siteDataModel: SiteDataModel, private slugify: Slugify) {
         var d = new Date();
         this.cacheKey = "spliss-site-" + d.getDay() + '-' + d.getHours()
     }
@@ -70,12 +71,54 @@ export class WpService {
     clearOlderVersions() {
         var arr = []; // Array to hold the keys
         // Iterate over localStorage and insert the keys that meet the condition into arr
-        for (var i = 0; i < localStorage.length; i++){
-            if (localStorage.key(i).substring(0,12) == 'spliss-site-' && localStorage.key(i) !== this.cacheKey) {
+        for (var i = 0; i < localStorage.length; i++) {
+            if (localStorage.key(i).substring(0, 12) == 'spliss-site-' && localStorage.key(i) !== this.cacheKey) {
                 arr.push(localStorage.key(i));
             }
         }
         arr.forEach(item => localStorage.removeItem(item))
     }
+
+    getAlbumByTitleSlug(titleSlug) {
+        let data = this.getSiteData();
+        if (typeof data.then == 'function') {
+            return this.getSiteData().then(data => {
+                return this.getAlbumInSiteData(titleSlug, data);
+            })
+        } else {
+            return this.getAlbumInSiteData(titleSlug, data);
+        }
+    }
+
+    getAlbumInSiteData(title, data) {
+        return data.albums.find((album) => {
+            console.log(album.title, title)
+            return title === this.slugify.transform(album.title);
+        });
+    }
+
+    getTrackByTitleSlug(titleSlug) {
+        let data = this.getSiteData();
+        if (typeof data.then == 'function') {
+            return this.getSiteData().then(data => {
+                return this.getTrackInSiteData(titleSlug, data);
+            })
+        } else {
+            return this.getTrackInSiteData(titleSlug, data);
+        }
+    }
+
+    getTrackInSiteData(title, data) {
+        let trackData = null;
+        data.albums.forEach((album) => {
+            album.tracks.forEach(track => {
+                if (title === this.slugify.transform(track.title)) {
+                    trackData = track
+                }
+            })
+        });
+        return trackData;
+    }
+
 
 }

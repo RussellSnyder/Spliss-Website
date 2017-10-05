@@ -36,3 +36,75 @@ body {
         }
     }
 }
+
+// Typography
+
+h1, h2, h3 {
+    font-family: 'Trirong', serif;
+}
+
+a {
+    color: @color-secondary-accent;
+    &:hover {
+        color: @color-secondary;
+        text-decoration: none;
+    }
+}
+
+html, body {
+    font-size: 16px;
+    font-family: 'Proza Libre', sans-serif;
+}
+
+@media screen and (min-width: 320px) {
+    html, body {
+        font-size: 15px;
+    }
+}
+
+@media screen and (min-width: 1000px) {
+    html, body {
+        font-size: 22px;
+    }
+}
+
+audio {
+    width: 100%;
+    &::-internal-media-controls-download-button {
+        display: none;
+    }
+
+    &::-webkit-media-controls-enclosure {
+        overflow: hidden;
+    }
+
+    &::-webkit-media-controls-panel {
+        width: ~"calc(100% + 30px);" /* Adjust as needed */
+    }
+
+}
+
+// Bootstrap Overrides
+
+.btn.btn-{
+    &primary {
+        background-color: @color-primary;
+        border-color: lighten(@color-primary, 10%);
+        &:hover {
+            background-color: darken(@color-primary, 1%);
+            border-color: lighten(@color-primary, 15%);
+            color: @color-secondary;
+        }
+    }
+    &secondary {
+        background-color: @color-primary;
+    }
+    &success {
+        background-color: @color-primary-accent;
+        border-color: lighten(@color-primary-accent, 10%);
+        &:hover {
+            background-color: darken(@color-primary-accent, 1%);
+            border-color: lighten(@color-primary-accent, 15%);
+        }
+    }
+}

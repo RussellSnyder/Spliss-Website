@@ -1,6 +1,13 @@
+@import (reference) "../_variables";
+
 .announcement {
-    margin-top: 20px;
     overflow: hidden;
     height: auto;
-
+    border-left: 5px solid @color-primary-accent;
+    > div {
+        margin-top: 20px;
+        i {
+            color: @color-primary-accent;
+        }
+    }
 }
