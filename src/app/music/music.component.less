@@ -1,5 +1,43 @@
 .page-container.music {
+    .album {
+        margin-bottom: 20px;
+    }
     .album-artwork {
-        margin: 10px auto;
+        margin: 0 auto 20px;
+    }
+
+    .tracks {
+        h3 {
+            margin-bottom: 20px;
+        }
+    }
+
+    .track {
+        h4 {
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        .description {
+            margin-bottom: 20px;
+        }
+
+        img {
+            margin: auto;
+        }
+        audio {
+            width: 100%;
+            &::-internal-media-controls-download-button {
+                display:none;
+            }
+
+            &::-webkit-media-controls-enclosure {
+                overflow:hidden;
+            }
+
+            &::-webkit-media-controls-panel {
+                width: ~"calc(100% + 30px);" /* Adjust as needed */
+            }
+
+        }
     }
 }

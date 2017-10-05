@@ -1,3 +1,31 @@
+.page-container.music .album {
+  margin-bottom: 20px;
+}
 .page-container.music .album-artwork {
-  margin: 10px auto;
+  margin: 0 auto 20px;
+}
+.page-container.music .tracks h3 {
+  margin-bottom: 20px;
+}
+.page-container.music .track h4 {
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+.page-container.music .track .description {
+  margin-bottom: 20px;
+}
+.page-container.music .track img {
+  margin: auto;
+}
+.page-container.music .track audio {
+  width: 100%;
+}
+.page-container.music .track audio::-internal-media-controls-download-button {
+  display: none;
+}
+.page-container.music .track audio::-webkit-media-controls-enclosure {
+  overflow: hidden;
+}
+.page-container.music .track audio::-webkit-media-controls-panel {
+  width: calc(100% + 30px); /* Adjust as needed */;
 }

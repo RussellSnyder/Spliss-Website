@@ -39,7 +39,7 @@ export class SiteDataModel {
                         body: track.track_description,
                         stream: track.dropbox_stream,
                         download: track.dropbox_download,
-                        artwork: track.main_artwork ? this.parseAcfImageData(track.main_artwork) : '',
+                        artwork: track.main_art_work ? this.parseAcfImageData(track.main_art_work) : '',
                         extra: track.extra_description
                     }
                 })

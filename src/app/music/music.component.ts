@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {WpService} from "../wp.service";
 
+
 @Component({
   selector: 'app-music',
   templateUrl: './music.component.html',
@@ -8,7 +9,7 @@ import {WpService} from "../wp.service";
 })
 export class MusicComponent implements OnInit {
   data;
-
+  readmoreLength = 100;
   constructor(private wpService: WpService) {}
 
   ngOnInit() {
@@ -21,4 +22,5 @@ export class MusicComponent implements OnInit {
       this.data = data;
     }
   }
+
 }
