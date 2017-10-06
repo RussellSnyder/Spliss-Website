@@ -119,5 +119,17 @@ export class WpService {
         return trackData;
     }
 
+    getAllAlbumsAndTrackNames(data) {
+        let albumTitles = [];
+        let trackTitles = [];
+        data.albums.forEach(album => {
+            albumTitles.push(album.title);
+            trackTitles = album.tracks.map(track => track.title);
+        })
+        return {
+            albums: albumTitles,
+            tracks: trackTitles
+        }
 
+    }
 }

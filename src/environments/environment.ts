@@ -7,10 +7,12 @@ export const environment = {
   production: false,
   rootUrl: 'http://www.russellsnyder.io/',
   siteId: 641,
-  pageIds: {
-    home: '493',
-    about: '496',
-    hear: '501',
-    see: '504',
+  firebase: {
+    apiKey: "AIzaSyCpcHrovpppCQIUW257cE_deWg4tw1mC9o",
+    authDomain: "spliss-download-codes.firebaseapp.com",
+    databaseURL: "https://spliss-download-codes.firebaseio.com",
+    projectId: "spliss-download-codes",
+    storageBucket: "",
+    messagingSenderId: "31306954767"
   }
 };

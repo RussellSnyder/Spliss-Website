@@ -25,6 +25,12 @@ import {SiteDataModel} from "./models/SiteDataModel";
 import { TrackComponent } from './track/track.component';
 import { AlbumComponent } from './album/album.component';
 import {ReviewsComponent} from "./reviews/reviews.component";
+import {DownloadCodeService} from "./download-code.service";
+import { environment } from '../environments/environment';
+import { AngularFireModule } from 'angularfire2';
+import {AngularFireDatabaseModule} from "angularfire2/database";
+import {AngularFireAuthModule} from "angularfire2/auth";
+
 
 @NgModule({
     declarations: [
@@ -53,9 +59,12 @@ import {ReviewsComponent} from "./reviews/reviews.component";
         BrowserAnimationsModule,
         HttpModule,
         AppRoutingModule,
-        FacebookModule.forRoot()
+        FacebookModule.forRoot(),
+        AngularFireModule.initializeApp(environment.firebase),
+        AngularFireDatabaseModule,
+        AngularFireAuthModule,
     ],
-    providers: [WpService, SiteDataModel, Slugify],
+    providers: [WpService, SiteDataModel, Slugify, DownloadCodeService],
     bootstrap: [AppComponent]
 })
 export class AppModule {
