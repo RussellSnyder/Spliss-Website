@@ -2,9 +2,6 @@ export class SiteDataModel {
     parseSiteData(pageData, imageData) {
         const acf = pageData.acf;
 
-        console.log(acf)
-
-
         const home = {
             title: pageData.title.pageData,
             body: pageData.content.rendered,

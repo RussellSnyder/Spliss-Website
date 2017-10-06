@@ -92,7 +92,6 @@ export class WpService {
 
     getAlbumInSiteData(title, data) {
         return data.albums.find((album) => {
-            console.log(album.title, title)
             return title === this.slugify.transform(album.title);
         });
     }
