@@ -32,26 +32,24 @@ export class AlbumComponent implements OnInit {
       this.data = data;
     }
     this.initializeForm()
-    this.checkDownloadCode();
   }
 
   checkDownloadCode() {
-    // let code = this.downloadCode.nativeElement.value
-    this.dcService.isCodeValid('JmBjg1u7h')
-    // this.checkingCode = true;
-    // this.dcService.isCodeValid(code).then(result => {
-        // if (result) {
-        //   this.successMessage = 'Thank you for downloading our Album! Download commencing....';
-        //   setTimeout(() => {
-        //     window.open(this.data.download);
-        //     this.initializeForm();
-        //     $('#download-album .close').click();
-        //   }, 1500)
-        // } else {
-        //   this.errorMessage = 'Sorry, that download code doesn\'t work. <br> Please Contact us if we made a mistake :-/'
-        // }
-        // this.checkingCode = false;
-    // })
+    let code = this.downloadCode.nativeElement.value;
+    this.checkingCode = true;
+    this.dcService.isCodeValid(code).then(success => {
+          if (success) {
+            this.successMessage = 'Thank you for downloading our Album! Download commencing....';
+            setTimeout(() => {
+              window.open(this.data.download);
+              this.initializeForm();
+              $('#download-album .close').click();
+            }, 2000)
+          } else {
+            this.errorMessage = 'Sorry, that download code doesn\'t work. <br> Please Contact us if we made a mistake :-/'
+          }
+          this.checkingCode = false;
+      })
   }
 
   private initializeForm() {

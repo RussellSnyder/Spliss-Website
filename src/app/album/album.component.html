@@ -40,7 +40,7 @@
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                     <h4 class="modal-title">Download {{ data.title }}</h4>
                 </div>
-                <div class="modal-body" *ngIf="!successMessage">
+                <div class="modal-body" *ngIf="!successMessage && !checkingCode">
                     <p>Please enter your download code:</p>
                     <form>
                         <div class="form-group">
@@ -57,6 +57,10 @@
                 <div class="modal-body text-center" *ngIf="successMessage">
                     <i class="fa fa-thumbs-o-up fa-3x"></i>
                     <h4>{{successMessage}}</h4>
+                </div>
+                <div class="modal-body text-center" *ngIf="checkingCode">
+                    <i class="fa fa-spinner fa-2x" aria-hidden="true"></i>
+                    <h4>Checking that code....</h4>
                 </div>
             </div>
 

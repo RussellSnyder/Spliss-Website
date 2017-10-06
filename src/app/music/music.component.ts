@@ -12,7 +12,8 @@ export class MusicComponent implements OnInit {
     data;
     readmoreLength = 100;
 
-    constructor(private wpService: WpService, private dcService: DownloadCodeService) {}
+    constructor(private wpService: WpService, private dcService: DownloadCodeService) {
+    }
 
     ngOnInit() {
         let data = this.wpService.getSiteData();
