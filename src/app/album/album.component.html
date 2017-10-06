@@ -13,16 +13,23 @@
     </div>
 
     <div *ngIf="data.tracks.length > 0" class="tracks">
-        <h3>Tracks</h3>
+        <h2>Tracks</h2>
         <div class="row">
             <div class="track col-md-4 col-sm-6" *ngFor="let track of data.tracks; let i = index">
-                <h2 class="text-center">{{ track.title }}</h2>
-                <img routerLink="../../track/{{track.title|slugify}}" *ngIf="track.artwork" src="{{ track.artwork.src }}" alt="" class="img-responsive linked-artwork">
-                <audio controls id="{{track.title}}">
-                    <source src="{{ track.stream }}&raw=1&t=.mp3" type="audio/mpeg">
-                    Your browser does not support the audio element.
-                </audio>
-                <div class="description" [innerHTML]="track.body | keepHtml"></div>
+                <div class="row">
+                <div class="col-xs-12">
+                    <h2 class="text-center">{{ track.title }}</h2>
+                    <img routerLink="../../track/{{track.title|slugify}}" *ngIf="track.artwork" src="{{ track.artwork.src }}" alt="" class="img-responsive linked-artwork">
+                    <audio controls id="{{track.title}}">
+                        <source src="{{ track.stream }}&raw=1&t=.mp3" type="audio/mpeg">
+                        Your browser does not support the audio element.
+                    </audio>
+                    <div class="description" [innerHTML]="track.body | keepHtml"></div>
+                </div>
+                <a routerLink="../../track/{{track.title|slugify}}" class="btn btn-primary col-xs-12">
+                    <h4>{{track.title}} &nbsp;<i class="fa fa-external-link"></i></h4>
+                </a>
+                </div>
             </div>
         </div>
     </div>

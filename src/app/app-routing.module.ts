@@ -1,5 +1,5 @@
 import {NgModule} from '@angular/core';
-import {Routes, RouterModule} from '@angular/router';
+import {Routes, RouterModule, Router, NavigationEnd} from '@angular/router';
 import {HomeComponent} from "./home/home.component";
 import {SorryComponent} from "./sorry/sorry.component";
 import {MusicComponent} from "./music/music.component";
@@ -27,5 +27,16 @@ const appRoutes: Routes = [
 })
 
 export class AppRoutingModule {
+    constructor(private router: Router) {
+        router.events.subscribe((val) => {
+            if (val instanceof NavigationEnd) {
+                this.scrollToTopOfPage();
+            }
+        });
+    }
 
+
+    scrollToTopOfPage() {
+        window.scrollTo(0, 0);
+    }
 }

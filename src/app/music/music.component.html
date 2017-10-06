@@ -30,7 +30,7 @@
           <h4 class="text-center">{{ track.title }}</h4>
           <img routerLink="../track/{{track.title|slugify}}" *ngIf="track.artwork" src="{{ track.artwork.src }}" alt="" class="img-responsive track-artwork linked-artwork">
           <audio controls id="{{track.title}}">
-            <source src="{{ track.stream }}&raw=1&t=.mp3" type="audio/mpeg">
+            <source src="{{ track.stream }}" type="audio/mpeg">
             Your browser does not support the audio element.
           </audio>
           <div class="description" [innerHTML]="track.body | keepHtml" #trackDescription></div>

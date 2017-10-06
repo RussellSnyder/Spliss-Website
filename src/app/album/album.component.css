@@ -4,8 +4,9 @@
 .page-container.album .album-artwork {
   margin: 0 auto 20px;
 }
-.page-container.album .tracks h3 {
+.page-container.album .tracks > h2 {
   margin-bottom: 20px;
+  border-bottom: 1px solid #6544AD;
 }
 .page-container.album .track h4 {
   margin-bottom: 10px;
