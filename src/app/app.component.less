@@ -84,6 +84,20 @@ audio {
 
 }
 
+img.linked-artwork {
+    -webkit-filter: brightness(100%);
+    filter: brightness(100%);
+    transition: filter 0.5s;
+
+    &:hover {
+        cursor: pointer;
+        -webkit-filter: brightness(130%);
+        filter: brightness(130%);
+        transition: filter 0.5s;
+    }
+}
+
+
 // Bootstrap Overrides
 
 .btn.btn-{

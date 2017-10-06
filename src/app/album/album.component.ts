@@ -21,8 +21,14 @@ export class AlbumComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.data =  this.wpService.getAlbumByTitleSlug(this.albumTitle);
-    console.log(this.data.download)
+    let data = this.wpService.getAlbumByTitleSlug(this.albumTitle);
+    if (typeof data.then == 'function') {
+      data.then(data => {
+        this.data = data;
+      })
+    } else {
+      this.data = data;
+    }
     this.initializeForm()
   }
 

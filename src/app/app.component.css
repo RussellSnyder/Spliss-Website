@@ -67,6 +67,17 @@ audio::-webkit-media-controls-enclosure {
 audio::-webkit-media-controls-panel {
   width: calc(100% + 30px); /* Adjust as needed */;
 }
+img.linked-artwork {
+  -webkit-filter: brightness(100%);
+  filter: brightness(100%);
+  transition: filter 0.5s;
+}
+img.linked-artwork:hover {
+  cursor: pointer;
+  -webkit-filter: brightness(130%);
+  filter: brightness(130%);
+  transition: filter 0.5s;
+}
 .btn.btn-primary {
   background-color: #FD9452;
   border-color: #feb384;
