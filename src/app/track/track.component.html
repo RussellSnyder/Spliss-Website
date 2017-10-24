@@ -3,11 +3,10 @@
         <h2 class="text-center">{{ data.title }}</h2>
         <img *ngIf="data.artwork" src="{{ data.artwork.src }}" alt="" class="img-responsive col-sm-8 col-sm-offset-2 col-xs-12">
         <audio controls id="{{data.title}}" class="col-sm-8 col-sm-offset-2 col-xs-12">
-            <source src="{{ data.stream }}&raw=1&t=.mp3" type="audio/mpeg">
+            <source src="{{ data.stream }}&raw=1" type="audio/mpeg">
             Your browser does not support the audio element.
         </audio>
         <div class="description col-sm-8 col-sm-offset-2" [innerHTML]="data.body | keepHtml"></div>
         <div class="extra col-sm-8 col-sm-offset-2 col-xs-12" *ngIf="data.extra" [innerHTML]="data.extra | keepHtml"></div>
-        <a href="{{ data.download }}" class="btn btn-success col-sm-8 col-sm-offset-2 col-xs-12"><h4>Download <i class="fa fa-download"></i></h4></a>
     </div>
 </div>

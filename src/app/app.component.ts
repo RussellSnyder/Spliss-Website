@@ -1,6 +1,4 @@
 import {Component, ViewEncapsulation} from '@angular/core';
-import {environment} from "../environments/environment";
-import 'firebase';
 
 @Component({
     selector: 'app-root',
@@ -10,7 +8,4 @@ import 'firebase';
 })
 export class AppComponent {
     title = 'app';
-    constructor() {
-        firebase.initializeApp(environment.firebase)
-    }
 }

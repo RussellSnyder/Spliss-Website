@@ -51,6 +51,6 @@
 .page-container.album .track audio::-webkit-media-controls-panel {
   width: calc(100% + 30px); /* Adjust as needed */;
 }
-.page-container.album #download-album .error {
-  color: red;
+.page-container.album #download-album {
+  margin-bottom: 10px;
 }

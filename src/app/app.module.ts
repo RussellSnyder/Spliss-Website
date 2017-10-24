@@ -25,8 +25,7 @@ import {SiteDataModel} from "./models/SiteDataModel";
 import { TrackComponent } from './track/track.component';
 import { AlbumComponent } from './album/album.component';
 import {ReviewsComponent} from "./reviews/reviews.component";
-import {DownloadCodeService} from "./download-code.service";
-import { environment } from '../environments/environment';
+
 
 
 @NgModule({
@@ -58,7 +57,7 @@ import { environment } from '../environments/environment';
         AppRoutingModule,
         FacebookModule.forRoot(),
     ],
-    providers: [WpService, SiteDataModel, Slugify, DownloadCodeService],
+    providers: [WpService, SiteDataModel, Slugify],
     bootstrap: [AppComponent]
 })
 export class AppModule {
